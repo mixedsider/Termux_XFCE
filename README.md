@@ -25,7 +25,7 @@ https://github.com/xMeM/termux-packages
 전체 프로그램 설치: 아래 명령어를 입력하세요
 
 ```
-curl -sL https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
+curl -sL https://raw.githubusercontent.com/mixedsider/Termux_XFCE/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 &nbsp;
 
