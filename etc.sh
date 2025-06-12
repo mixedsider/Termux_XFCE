@@ -90,17 +90,18 @@ export QT_IM_MODULE=fcitx5' >> $PREFIX/etc/bash.bashrc
     apt autoclean -y
     apt autoremove -y
 
+    # 설치 후 들어가는 파일
+    # 버그가 있음
+    # sleep 1
+    # echo -e "${GREEN}Termux-widget 설치.${WHITE}"
+    # wget $TERMUX_WIDGET_LINK -O termux-widget_v0.13.0+github-debug.apk
+	# termux-open termux-widget_v0.13.0+github-debug.apk
 
-    sleep 1
-    echo -e "${GREEN}Termux-widget 설치.${WHITE}"
-    wget $TERMUX_WIDGET_LINK -O termux-widget_v0.13.0+github-debug.apk
-	termux-open termux-widget_v0.13.0+github-debug.apk
-
-	echo -e "${GREEN}termux widget 설치파일 삭제.${WHITE}"
-    rm termux-widget*.apk
+	# echo -e "${GREEN}termux widget 설치파일 삭제.${WHITE}"
+    # rm termux-widget*.apk
 
     echo -e "${GREEN}shortcuts 생성.${WHITE}"
-    mkdir ~/.shortcuts
+    mkdir -p ~/.shortcuts
     
 echo -e '#!/data/data/com.termux/files/usr/bin/bash
 killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
@@ -129,9 +130,10 @@ env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch
 termux_gpu_accel_install()
 {
     set -e
-    sleep 1
-    echo -e "${GREEN}mesa ${WHITE}"
-	pkg install -y mesa mesa-demos mesa-dev osmesa osmesa-demos 
+    #이미 상위 버전이 설치됨
+    #sleep 1
+    #echo -e "${GREEN}mesa ${WHITE}"
+	#pkg install -y mesa mesa-demos mesa-dev osmesa osmesa-demos 
 
     sleep 1
     echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치-Adreno GPU가 장착된 장치에서 Vulkan API를 사용하기 위한 환경을 제공합니다. ${WHITE}"
@@ -222,6 +224,7 @@ read yn
 	esac
 
 
-termux_gpu_accel_install
-termux_gpu_accel_dev_install
+# 이중 설치 방지
+#termux_gpu_accel_install
+#termux_gpu_accel_dev_install
 #termux_hangover_wine_install

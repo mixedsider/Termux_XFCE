@@ -68,10 +68,10 @@ cp .fancybash.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$user
 echo "source ~/.fancybash.sh" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 sed -i '327s/termux/ubuntu/' $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fancybash.sh
 
-wget https://github.com/yanghoeg/Termux_XFCE/raw/main/conky.tar.gz
+wget https://github.com/mixedsider/Termux_XFCE/raw/main/conky.tar.gz
 tar -xvzf conky.tar.gz
 rm conky.tar.gz
-mkdir $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.config
+mkdir -p $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.config
 mv .config/conky/ $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.config
 mv .config/neofetch $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.config
 
@@ -82,14 +82,22 @@ cat <<'EOF' > $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$usernam
 Xcursor.theme: dist-dark
 EOF
 
-mkdir $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fonts/
+mkdir -p $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fonts/
 cp .fonts/NotoColorEmoji-Regular.ttf $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fonts/ 
 
 #Setup Hardware Acceleration
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-dev_25.0.1-2_all.deb
+wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-icd-freedreno_25.0.1-2_aarch64.deb
+wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-icd-swrast_25.0.1-2_aarch64.deb
+
+pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-dev_25.0.1-2_all.deb
+pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-icd-freedreno_25.0.1-2_aarch64.deb
+pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-icd-swrast_25.0.1-2_aarch64.deb
+
+pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://githDub.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 
-wget https://github.com/yanghoeg/Termux_XFCE/raw/main/ubuntu_etc.sh
+wget https://github.com/mixedsider/Termux_XFCE/raw/main/ubuntu_etc.sh
 chmod +x ./ubuntu_etc.sh
 cp ./ubuntu_etc.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
 chmod +x $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
