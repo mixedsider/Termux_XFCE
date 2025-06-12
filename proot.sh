@@ -90,7 +90,7 @@ cp .fonts/NotoColorEmoji-Regular.ttf $PREFIX/var/lib/proot-distro/installed-root
 # pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-dev_25.0.1-2_all.deb
 # pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-icd-freedreno_25.0.1-2_aarch64.deb
 # pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-icd-swrast_25.0.1-2_aarch64.deb
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://githDub.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 
 # pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-dev_25.0.1-2_all.deb
 # pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-icd-freedreno_25.0.1-2_aarch64.deb
