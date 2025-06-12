@@ -86,14 +86,15 @@ mkdir -p $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fo
 cp .fonts/NotoColorEmoji-Regular.ttf $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fonts/ 
 
 #Setup Hardware Acceleration
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-dev_25.0.1-2_all.deb
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-icd-freedreno_25.0.1-2_aarch64.deb
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-icd-swrast_25.0.1-2_aarch64.deb
+# 최신 버전은 최적화가 안되어있어서 기본 버전으로 진행 ( mesa 24 )
+# pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-dev_25.0.1-2_all.deb
+# pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-icd-freedreno_25.0.1-2_aarch64.deb
+# pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-icd-swrast_25.0.1-2_aarch64.deb
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://githDub.com/mixedsider/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-dev_25.0.1-2_all.deb
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-icd-freedreno_25.0.1-2_aarch64.deb
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-icd-swrast_25.0.1-2_aarch64.deb
+# pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-dev_25.0.1-2_all.deb
+# pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-icd-freedreno_25.0.1-2_aarch64.deb
+# pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-icd-swrast_25.0.1-2_aarch64.deb
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 
 wget https://github.com/mixedsider/Termux_XFCE/raw/main/ubuntu_etc.sh
